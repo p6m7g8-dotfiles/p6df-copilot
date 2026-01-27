@@ -21,6 +21,30 @@ p6df::modules::copilot::deps() {
 ######################################################################
 p6df::modules::copilot::vscodes() {
 
+  p6df::modules::vscode::extension::install github.copilot
+  p6df::modules::vscode::extension::install github.copilot-chat
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::copilot::vscodes::config()
+#
+#>
+######################################################################
+p6df::modules::copilot::vscodes::config() {
+
+  cat <<'EOF'
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": true
+  }
+EOF
+
   p6_return_void
 }
 
@@ -43,25 +67,12 @@ p6df::modules::copilot::external::brews() {
 #
 # Function: p6df::modules::copilot::home::symlink()
 #
+#  Environment:	 P6_DFZ_SRC_P6M7G8_DOTFILES_DIR
 #>
 ######################################################################
 p6df::modules::copilot::home::symlink() {
 
-  p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::copilot::langs(_dir)
-#
-#  Args:
-#	_dir -
-#
-#>
-######################################################################
-p6df::modules::copilot::langs() {
-  local _dir="$1"
+  p6_file_symlink "$P6_DFZ_SRC_P6M7G8_DOTFILES_DIR/p6df-copilot/share/copilot" .copilot
 
   p6_return_void
 }
@@ -75,6 +86,16 @@ p6df::modules::copilot::langs() {
 ######################################################################
 p6df::modules::copilot::aliases::init() {
 
+  # core copilot CLI commands
+  p6_alias ghcs "gh copilot suggest"
+  p6_alias ghce "gh copilot explain"
+  p6_alias ghcc "gh copilot config"
+
+  # common patterns
+  p6_alias ghcsg "gh copilot suggest -t git"
+  p6_alias ghcss "gh copilot suggest -t shell"
+  p6_alias ghcsgh "gh copilot suggest -t gh"
+
   p6_return_void
 }
 
@@ -86,17 +107,15 @@ p6df::modules::copilot::aliases::init() {
 #  Returns:
 #	str - str
 #
-#  Environment:	 P6_DFZ_PROFILE_COPILOT
+#  Environment:	 GH_USER P6_DFZ_PROFILE_COPILOT
 #>
 ######################################################################
 p6df::modules::copilot::prompt::mod() {
 
   local str
   if ! p6_string_blank "$P6_DFZ_PROFILE_COPILOT"; then
-    local user=""
-
-    if ! p6_string_blank "$user"; then
-      str="copilot:\t\t  $P6_DFZ_PROFILE_COPILOT: $user"
+    if ! p6_string_blank "$GH_USER"; then
+      str="copilot:\t\t  $P6_DFZ_PROFILE_COPILOT: $GH_USER"
     fi
   fi
 
@@ -111,13 +130,13 @@ p6df::modules::copilot::prompt::mod() {
 #  Args:
 #	profile -
 #
-#  Environment:	 P6_DFZ_PROFILE_GEMINI
+#  Environment:	 P6_DFZ_PROFILE_COPILOT
 #>
 ######################################################################
 p6df::modules::copilot::profile::on() {
   local profile="$1"
 
-  p6_env_export "P6_DFZ_PROFILE_GEMINI" "$profile"
+  p6_env_export "P6_DFZ_PROFILE_COPILOT" "$profile"
 
   p6_return_void
 }
@@ -127,12 +146,12 @@ p6df::modules::copilot::profile::on() {
 #
 # Function: p6df::modules::copilot::profile::off()
 #
-#  Environment:	 P6_DFZ_PROFILE_GEMINI
+#  Environment:	 P6_DFZ_PROFILE_COPILOT
 #>
 ######################################################################
 p6df::modules::copilot::profile::off() {
 
-  p6_env_export_un P6_DFZ_PROFILE_GEMINI
+  p6_env_export_un P6_DFZ_PROFILE_COPILOT
 
   p6_return_void
 }
