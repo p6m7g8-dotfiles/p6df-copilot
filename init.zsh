@@ -43,7 +43,6 @@ p6df::modules::copilot::external::brews() {
 #
 # Function: p6df::modules::copilot::home::symlink()
 #
-#  Environment:	 P6_DFZ_SRC_P6M7G8_DOTFILES_DIR
 #>
 ######################################################################
 p6df::modules::copilot::home::symlink() {
@@ -87,7 +86,7 @@ p6df::modules::copilot::aliases::init() {
 #  Returns:
 #	str - str
 #
-#  Environment:	 HOME P6_DFZ_PROFILE_GEMINI
+#  Environment:	 P6_DFZ_PROFILE_COPILOT
 #>
 ######################################################################
 p6df::modules::copilot::prompt::mod() {

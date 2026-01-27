@@ -1,4 +1,4 @@
-# P6's POSIX.2: p6df-gemini
+# P6's POSIX.2: p6df-copilot
 
 ## Table of Contents
 
@@ -31,30 +31,32 @@ TODO: Add a short summary of this module.
 
 ### Functions
 
-#### p6df-gemini
+#### p6df-copilot
 
-##### p6df-gemini/init.zsh
+##### p6df-copilot/init.zsh
 
-- `p6df::modules::gemini::aliases::init()`
-- `p6df::modules::gemini::deps()`
-- `p6df::modules::gemini::external::brews()`
-- `p6df::modules::gemini::home::symlink()`
-- `p6df::modules::gemini::langs(_dir)`
-- `p6df::modules::gemini::profile::off()`
-- `p6df::modules::gemini::profile::on(profile)`
-- `p6df::modules::gemini::vscodes()`
-- `str str = p6df::modules::gemini::prompt::mod()`
+- `p6df::modules::copilot::aliases::init()`
+- `p6df::modules::copilot::deps()`
+- `p6df::modules::copilot::external::brews()`
+- `p6df::modules::copilot::home::symlink()`
+- `p6df::modules::copilot::langs(_dir)`
+  - Args:
+    - _dir - 
+- `p6df::modules::copilot::profile::off()`
+- `p6df::modules::copilot::profile::on(profile)`
+  - Args:
+    - profile - 
+- `p6df::modules::copilot::vscodes()`
+- `str str = p6df::modules::copilot::prompt::mod()`
 
 ## Hierarchy
 
 ```text
 .
 ├── init.zsh
-├── README.md
-└── share
-    └── gemini
+└── README.md
 
-191 directories, 580 files
+1 directory, 2 files
 ```
 
 ## Author
