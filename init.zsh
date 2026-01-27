@@ -115,7 +115,7 @@ p6df::modules::copilot::prompt::mod() {
   local str
   if ! p6_string_blank "$P6_DFZ_PROFILE_COPILOT"; then
     if ! p6_string_blank "$GH_USER"; then
-      str="copilot:\t\t  $P6_DFZ_PROFILE_COPILOT: $GH_USER"
+      str="copilot:\t  $P6_DFZ_PROFILE_COPILOT: $GH_USER"
     fi
   fi
 
