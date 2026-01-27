@@ -39,14 +39,13 @@ TODO: Add a short summary of this module.
 - `p6df::modules::copilot::deps()`
 - `p6df::modules::copilot::external::brews()`
 - `p6df::modules::copilot::home::symlink()`
-- `p6df::modules::copilot::langs(_dir)`
-  - Args:
-    - _dir - 
 - `p6df::modules::copilot::profile::off()`
 - `p6df::modules::copilot::profile::on(profile)`
   - Args:
     - profile - 
+
 - `p6df::modules::copilot::vscodes()`
+- `p6df::modules::copilot::vscodes::config()`
 - `str str = p6df::modules::copilot::prompt::mod()`
 
 ## Hierarchy
@@ -54,9 +53,11 @@ TODO: Add a short summary of this module.
 ```text
 .
 ├── init.zsh
-└── README.md
+├── README.md
+└── share
+    └── copilot
 
-1 directory, 2 files
+3 directories, 2 files
 ```
 
 ## Author
