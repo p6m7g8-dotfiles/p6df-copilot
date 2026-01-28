@@ -43,6 +43,7 @@ TODO: Add a short summary of this module.
 - `p6df::modules::copilot::profile::on(profile)`
   - Args:
     - profile - 
+
 - `p6df::modules::copilot::vscodes()`
 - `p6df::modules::copilot::vscodes::config()`
 - `str str = p6df::modules::copilot::prompt::mod()`
